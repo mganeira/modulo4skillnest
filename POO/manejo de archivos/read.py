@@ -1,0 +1,5 @@
+file = open("mi_archivo.txt", "r+")
+contenido = file.read()
+file.write("JIJI")
+print(f"Contenido:", contenido)
+file.close()
