@@ -119,22 +119,103 @@ def buscar_libro():
                 return
     print("Producto no encontrado.")
 
+#MARCAR LIBRO COMO PRESTADO
 def marcar_libro_prestado():
-    nombre = input("Nombre del título del libro a prestar:     ")
+    nombre = input("Nombre del título del libro a prestar: ")
+    #Si la ruta no existe, no hay libros registrados, fin.
     if not RUTA_ARCHIVO.exists():
         print("No hay libros registrados.")
         return
-    with RUTA_ARCHIVO.open("w", encoding="utf-8") as f:
-        for linea in f:
-            partes = linea.strip().split(",")
-            if len(partes) == 4 and partes[0].lower() == nombre.lower():
-                partes[4] = "no disponible"
-                print(f"Libro encontrado: Titulo={partes[0]}, Autor={partes[1]}, Año de publicación={partes[2]}, Estado={partes[3]}")
-                return
-    print("Producto no encontrado.")
+    
+    # Leer todas las líneas con el método "r", abriendo, leyendo. 
+    with RUTA_ARCHIVO.open("r", encoding="utf-8") as f:
+        lineas = f.readlines()
+    
+    # Buscar y modificar el libro. Encontrado se marca como False inicialmente. 
 
+
+    encontrado = False
+    for i, linea in enumerate(lineas):
+        partes = linea.strip().split(",")
+         # Si se encuentra, for i , lineas in lineas enumeradas,   
+         # cada parte (titulo, autor, año de publi, estado) y las separa en partes con split().
+        if len(partes) == 4 and partes[0].lower() == nombre.lower(): 
+         #Si la parte 0 (el titulo) corresponde al título de nombre que se puso en el input, 
+         # y si la parte 4 (indice 3) corresponde a 4, y si esa parte 4 es igual a disponible,
+         #  se va a marcar como "no disponible"   
+
+            if partes[3] == "disponible" or partes[3] == "Disponible":
+                partes[3] = "no disponible"  
+                #Con este join, se transforma de nuevo en cadena lo que se había transformado con split() y lineas[i] van a ser las partes
+                lineas[i] = ",".join(partes) + "\n"
+                #Se printea lo transformado
+                print(f"Libro prestado: Titulo={partes[0]}, Autor={partes[1]}, Año={partes[2]}, Estado={partes[3]}")
+                #Encontrado se marca como true
+                encontrado = True
+                
+            else:
+                #Si ya está prestado, se printea que está prestado.
+                print("El libro ya está prestado.")
+                return
+            break
+    
+    if not encontrado:
+        print("Libro no encontrado.")
+        return
+    
+    # Guardar los cambios
+    with RUTA_ARCHIVO.open("w", encoding="utf-8") as f:
+        #Writelines va a sobreescribir las lineas (partes juntadas) nuevas.
+        f.writelines(lineas)
+            
+#MARCAR LIBRO COMO DEVUELTO
 def devolver_libro():
-    pass
+    nombre = input("Nombre del título del libro a devolver: ")
+    #Si la ruta no existe, no hay libros registrados, fin.
+    if not RUTA_ARCHIVO.exists():
+        print("No hay libros registrados.")
+        return
+    
+    # Leer todas las líneas con el método "r", abriendo, leyendo. 
+    with RUTA_ARCHIVO.open("r", encoding="utf-8") as f:
+        lineas = f.readlines()
+    
+    # Buscar y modificar el libro. Encontrado se marca como False inicialmente. 
+
+
+    encontrado = False
+    for i, linea in enumerate(lineas):
+        partes = linea.strip().split(",")
+         # Si se encuentra, for i , lineas in lineas enumeradas,   
+         # cada parte (titulo, autor, año de publi, estado) y las separa en partes con split().
+        if len(partes) == 4 and partes[0].lower() == nombre.lower(): 
+         #Si la parte 0 (el titulo) corresponde al título de nombre que se puso en el input, 
+         # y si la parte 4 (indice 3) corresponde a 4, y si esa parte 4 es igual a disponible,
+         #  se va a marcar como "no disponible"   
+
+            if partes[3] == "no disponible" or partes[3] == "No disponible" or partes[3] == "No Disponible":
+                partes[3] = "Disponible"  
+                #Con este join, se transforma de nuevo en cadena lo que se había transformado con split()
+                lineas[i] = ",".join(partes) + "\n"
+                #Se printea lo transformado
+                print(f"Libro devuelto: Titulo={partes[0]}, Autor={partes[1]}, Año={partes[2]}, Estado={partes[3]}")
+                #Encontrado se marca como true
+                encontrado = True
+                
+            else:
+                #Si ya está prestado, se printea que está prestado.
+                print("El libro no está prestado.")
+                return
+            break
+    
+    if not encontrado:
+        print("Libro no encontrado.")
+        return
+    
+    # Guardar los cambios
+    with RUTA_ARCHIVO.open("w", encoding="utf-8") as f:
+        f.writelines(lineas)
+            
 
 def menu():
     while True:
