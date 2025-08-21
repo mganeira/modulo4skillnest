@@ -1,7 +1,5 @@
 from pathlib import Path
 
-from pathlib import Path
-
 # Carpeta del script actual
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -294,3 +292,4 @@ if __name__ == "__main__":
     #Se crea una instancia de la biblioteca y se inicia el menú
     biblioteca = Biblioteca()
     biblioteca.menu()
+
