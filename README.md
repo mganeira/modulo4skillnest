@@ -1,114 +1,193 @@
-# Módulo 4 Skillnest
+# Módulo 4 Skillnest - Programación Orientada a Objetos
 
-Material correspondiente a lo trabajado durante el módulo 4 orientado a POO en Python.
+Material correspondiente al módulo 4 del **Bootcamp Python Trainee de Skillnest**, orientado a Programación Orientada a Objetos (POO) y manejo avanzado de archivos en Python.
 
-# Proyecto de Manejo de Archivos en Python
+## 🎯 Objetivo del Módulo
 
-Una colección de ejercicios y sistemas desarrollados para aprender el manejo de archivos, excepciones y manipulación de datos CSV en Python.
+Este repositorio contiene una colección completa de ejercicios, proyectos y sistemas desarrollados para dominar los conceptos fundamentales de la Programación Orientada a Objetos, manejo de archivos, excepciones y manipulación de datos CSV en Python.
 
-## Contenido del Proyecto
-
-Este repositorio contiene múltiples ejemplos y un sistema completo que demuestran diferentes aspectos del manejo de archivos en Python:
-
-- **Sistema de Inventario CSV**: Aplicación completa de gestión de inventario
-- **Sistema de Biblioteca**: Gestión de libros con programación orientada a objetos
-- **Ejemplos de acceso a archivos**: Diferentes métodos para leer y escribir archivos
-- **Manejo de logs**: Registro de actividades en archivos
-- **Gestión de excepciones**: Manejo robusto de errores
-
-## Archivos del Proyecto
+## 📁 Estructura del Repositorio
 
 ```
-proyecto/
-├── inventario.py                    # Sistema principal de inventario
-├── biblioteca.py                   # Sistema de gestión de biblioteca
-├── ejemplos_archivos.py            # Ejemplos de acceso a archivos
-├── manejo_logs.py                  # Ejemplo de escritura de logs
-├── inventario.csv                  # Archivo de datos inventario (generado automáticamente)
-├── biblioteca.txt                  # Archivo de datos biblioteca (generado automáticamente)
-├── registro.log                    # Archivo de logs (generado automáticamente)
-├── archivo1.txt                    # Archivo de ejemplo
-├── files/                          # Carpeta de archivos de ejemplo
-│   └── archivo1.txt
-└── backups/                        # Carpeta de respaldos (generada automáticamente)
-    ├── inventario_backup_*.csv
-    └── biblioteca_backup_*.txt
+Módulo-4-Skillnest/
+├── 📂 POO/                          # Conceptos fundamentales de POO
+├── 📂 creacion_de_clases/           # Fundamentos de clases y objetos
+├── 📂 pilares_poo/                  # Encapsulación, Herencia, Polimorfismo
+├── 📂 metodos/                      # Métodos especiales y avanzados
+├── 📂 asociacion_clases/            # Relaciones entre clases
+├── 📂 manejo_de_archivos/           # Manipulación de archivos y CSV
+├── 📂 excepciones/                  # Gestión de errores y excepciones
+├── 📂 bikecity/                     # Proyecto sistema de bicicletas
+├── 📂 ev_grupal_6_inventario/       # Sistema de inventario (Evaluación grupal)
+├── 📂 ev_modulo/                    # Evaluación final del módulo
+└── 📄 README.md                     # Documentación principal
 ```
 
-## Requisitos
+## 🚀 Proyectos Principales
 
-- Python 3.6 o superior
-- Módulos estándar de Python:
-  - `csv`
-  - `os`
-  - `datetime`
-  - `pathlib`
-  - `shutil`
+### 1. Sistema de Inventario (Evaluación Grupal 6)
+**Ubicación:** `ev_grupal_6_inventario/`
 
-## Instalación y Ejecución
+Sistema completo de gestión de inventario con funcionalidades CRUD:
+- Gestión de productos con CSV
+- Respaldos automáticos
+- Búsqueda y filtrado
+- Validación robusta de datos
 
-1. Clona o descarga todos los archivos del proyecto
-2. Asegúrate de tener Python instalado
-3. Ejecuta cualquiera de los programas:
+### 2. BikeCity - Sistema de Bicicletas
+**Ubicación:** `bikecity/`
 
-```bash
-# Sistema principal de inventario
-python inventario.py
+Aplicación de gestión de sistema de bicicletas urbanas:
+- Programación orientada a objetos avanzada
+- Gestión de usuarios y bicicletas
+- Sistema de alquiler y devolución
 
-# Sistema de gestión de biblioteca
-python biblioteca.py
+### 3. Sistema de Biblioteca
+**Ubicación:** `manejo_de_archivos/`
 
-# Ejemplos de manejo de archivos
-python ejemplos_archivos.py
+Gestión completa de biblioteca con:
+- CRUD de libros
+- Sistema de préstamos
+- Persistencia en archivos TXT
 
-# Ejemplo de logs
-python manejo_logs.py
-```
+## 📚 Conceptos Cubiertos por Carpeta
 
-## Conceptos Cubiertos
+### 🎯 POO - Programación Orientada a Objetos
+Conceptos fundamentales de la programación orientada a objetos en Python.
 
-### 1. Manejo de Archivos con Context Managers
+### 🏗️ creacion_de_clases
+- Definición de clases y objetos
+- Constructores (`__init__`)
+- Atributos de instancia y clase
+- Métodos básicos
 
 ```python
-with open("archivo.txt", "r") as file:
+class Producto:
+    def __init__(self, nombre, precio):
+        self.nombre = nombre
+        self.precio = precio
+    
+    def mostrar_info(self):
+        return f"{self.nombre}: ${self.precio}"
+```
+
+### 🛡️ pilares_poo
+Los cuatro pilares fundamentales de la POO:
+
+#### **Encapsulación**
+```python
+class CuentaBanco:
+    def __init__(self):
+        self.__saldo = 0  # Atributo privado
+    
+    def get_saldo(self):
+        return self.__saldo
+    
+    def depositar(self, cantidad):
+        if cantidad > 0:
+            self.__saldo += cantidad
+```
+
+#### **Herencia**
+```python
+class Animal:
+    def __init__(self, nombre):
+        self.nombre = nombre
+    
+    def hacer_sonido(self):
+        pass
+
+class Perro(Animal):
+    def hacer_sonido(self):
+        return "Guau!"
+```
+
+#### **Polimorfismo**
+```python
+def procesar_animal(animal):
+    return animal.hacer_sonido()  # Funciona con cualquier subclase
+```
+
+#### **Abstracción**
+```python
+from abc import ABC, abstractmethod
+
+class Vehiculo(ABC):
+    @abstractmethod
+    def acelerar(self):
+        pass
+```
+
+### ⚙️ metodos
+Métodos especiales y avanzados:
+- Métodos mágicos (`__str__`, `__repr__`, `__len__`)
+- Métodos de clase (`@classmethod`)
+- Métodos estáticos (`@staticmethod`)
+- Propiedades (`@property`)
+
+```python
+class Libro:
+    def __init__(self, titulo, paginas):
+        self.titulo = titulo
+        self.paginas = paginas
+    
+    def __str__(self):
+        return f"Libro: {self.titulo}"
+    
+    def __len__(self):
+        return self.paginas
+    
+    @property
+    def es_largo(self):
+        return self.paginas > 300
+```
+
+### 🔗 asociacion_clases
+Relaciones entre clases:
+- **Composición**: "tiene un"
+- **Agregación**: "usa un"
+- **Asociación**: relaciones entre objetos
+
+```python
+class Motor:
+    def __init__(self, potencia):
+        self.potencia = potencia
+
+class Coche:
+    def __init__(self, marca, motor):
+        self.marca = marca
+        self.motor = motor  # Composición
+```
+
+### 📁 manejo_de_archivos
+Manipulación avanzada de archivos:
+
+#### **Context Managers**
+```python
+with open("archivo.txt", "r", encoding="utf-8") as file:
     contenido = file.read()
 ```
 
-**Ventajas del `with` statement:**
-- Cierre automático del archivo
-- Manejo seguro de recursos
-- Prevención de corrupción de datos
-
-### 2. Modos de Apertura de Archivos
-
-- **`'r'` (read)**: Solo lectura, archivo debe existir
-- **`'w'` (write)**: Escritura que sobrescribe contenido
-- **`'a'` (append)**: Añade contenido al final sin borrar
-- **`'r+'`**: Lectura y escritura
-- **`'w+'`**: Escritura y lectura (sobrescribe)
-- **`'a+'`**: Anexar y lectura
-
-### 3. Métodos de Acceso a Archivos
-
-#### Método 1: Usando `os.path`
-
+#### **Trabajo con CSV**
 ```python
-import os
-ruta_dinamica = os.path.join('.', nombre_archivo)
-with open(ruta_dinamica, 'r') as f:
-    contenido = f.read()
+import csv
+
+with open('datos.csv', 'w', newline='', encoding='utf-8') as file:
+    escritor = csv.writer(file)
+    escritor.writerow(['Nombre', 'Precio', 'Cantidad'])
 ```
 
-#### Método 2: Usando `pathlib`
-
+#### **Gestión de Rutas**
 ```python
 from pathlib import Path
-ruta_dinamica = Path('./files') / nombre_archivo
-with open(ruta_dinamica, 'r') as f:
-    contenido = f.read()
+
+ruta = Path("./archivos") / "documento.txt"
+with ruta.open("r") as archivo:
+    contenido = archivo.read()
 ```
 
-### 4. Manejo de Excepciones
+### ⚠️ excepciones
+Manejo robusto de errores:
 
 ```python
 try:
@@ -117,235 +196,192 @@ try:
 except FileNotFoundError:
     print("El archivo no existe")
 except PermissionError:
-    print("Sin permisos para acceder al archivo")
+    print("Sin permisos de acceso")
 except Exception as e:
     print(f"Error inesperado: {e}")
 else:
-    print("Archivo leído correctamente")
+    print("Operación exitosa")
 finally:
-    print("Operación completada")
+    print("Limpieza completada")
 ```
 
-### 5. Trabajo con CSV
+## 🛠️ Requisitos Técnicos
 
-```python
-import csv
+- **Python 3.6 o superior**
+- **Módulos estándar requeridos:**
+  - `csv` - Manipulación de archivos CSV
+  - `os` - Operaciones del sistema operativo
+  - `datetime` - Manejo de fechas y tiempo
+  - `pathlib` - Manejo moderno de rutas
+  - `shutil` - Utilidades de archivos
+  - `abc` - Clases abstractas
 
-# Escribir CSV
-with open('datos.csv', 'w', newline='', encoding='utf-8') as file:
-    escritor = csv.writer(file)
-    escritor.writerow(['Nombre', 'Precio', 'Cantidad'])
-    escritor.writerow(['Producto1', '10.50', '5'])
+## 🚀 Instalación y Ejecución
 
-# Leer CSV
-with open('datos.csv', 'r', encoding='utf-8') as file:
-    lector = csv.reader(file)
-    for fila in lector:
-        print(fila)
+1. **Clonar el repositorio:**
+```bash
+git clone https://github.com/tu-usuario/modulo-4-skillnest.git
+cd modulo-4-skillnest
 ```
 
-### 6. Sistema de Logs
-
-```python
-with open("registro.log", "a") as file:
-    file.write("2025-08-08: Nuevo acceso\n")
+2. **Verificar instalación de Python:**
+```bash
+python --version
 ```
 
-## Funcionalidades del Sistema de Inventario
+3. **Ejecutar proyectos específicos:**
+```bash
+# Sistema de inventario
+cd ev_grupal_6_inventario
+python inventario.py
 
-### Operaciones CRUD
+# Sistema BikeCity
+cd bikecity
+python main.py
 
-- **Create**: Añadir nuevos productos
-- **Read**: Ver inventario completo y buscar productos específicos
-- **Update**: Modificar productos existentes
-- **Delete**: Eliminar productos con confirmación
-
-### Características Avanzadas
-
-- **Detección automática de encabezados**: El sistema identifica si un CSV tiene headers
-- **Respaldos automáticos**: Copias de seguridad con timestamp
-- **Validación de datos**: Verificación de formato y tipos de datos
-- **Manejo de errores**: Recuperación elegante de fallos
-
-## Sistema de Gestión de Biblioteca
-
-### Funcionalidades Principales
-
-El sistema de biblioteca permite:
-
-1. **Agregar libros**: Registrar nuevos libros con título, autor, año y estado
-2. **Eliminar libros**: Remover libros por título
-3. **Listar libros**: Mostrar todos los libros disponibles
-4. **Buscar libros**: Encontrar libros por título
-5. **Gestión de préstamos**: Marcar libros como prestados
-6. **Devolución**: Procesar devolución de libros prestados
-
-### Estructura de Datos
-
-```python
-# Clase Libro con encapsulación
-class Libro:
-    def __init__(self, titulo, autor, anio_publicacion, estado):
-        self._titulo = titulo
-        self._autor = autor
-        self._anio_publicacion = anio_publicacion
-        self._estado = estado
-
-# Métodos getter y setter para encapsulación
-def get_titulo(self):
-    return self._titulo
-
-def set_titulo(self, value):
-    self._titulo = value
+# Ejemplos de POO
+cd POO
+python ejemplo_clases.py
 ```
 
-### Operaciones con Archivos
+## 📖 Guía de Estudio Recomendada
 
+### **Nivel Principiante**
+1. `creacion_de_clases/` - Fundamentos básicos
+2. `POO/` - Conceptos introductorios
+3. `metodos/` - Métodos básicos
+
+### **Nivel Intermedio**
+4. `pilares_poo/` - Encapsulación y herencia
+5. `excepciones/` - Manejo de errores
+6. `manejo_de_archivos/` - Persistencia de datos
+7. `asociacion_clases/` - Relaciones complejas
+8. `bikecity/` - Proyecto integrador
+9. `ev_grupal_6_inventario/` - Sistema completo
+
+## 🎯 Competencias Desarrolladas
+
+### **Programación Orientada a Objetos**
+- ✅ Diseño e implementación de clases
+- ✅ Aplicación de los pilares de la POO
+- ✅ Relaciones entre objetos
+- ✅ Patrones de diseño básicos
+
+### **Manejo de Archivos**
+- ✅ Lectura y escritura de archivos
+- ✅ Manipulación de CSV y TXT
+- ✅ Context managers y buenas prácticas
+- ✅ Gestión de rutas con pathlib
+
+### **Gestión de Errores**
+- ✅ Captura y manejo de excepciones
+- ✅ Validación de datos de entrada
+- ✅ Recuperación elegante de errores
+- ✅ Logging y debugging
+
+### **Desarrollo de Aplicaciones**
+- ✅ Arquitectura de software básica
+- ✅ Operaciones CRUD completas
+- ✅ Interfaces de usuario por consola
+- ✅ Persistencia y respaldos de datos
+
+## 📋 Evaluaciones Incluidas
+
+### **Evaluación Grupal 6 - Sistema de Inventario**
+- Implementación completa de CRUD
+- Manejo avanzado de archivos CSV
+- Validación robusta de datos
+- Sistema de respaldos automáticos
+
+### **Evaluación Final del Módulo**
+- Aplicación integral de todos los conceptos
+- Demostración de dominio de POO
+- Implementación de mejores prácticas
+
+## 🔧 Funcionalidades Destacadas
+
+### **Sistema de Inventario**
+- ✨ Detección automática de encabezados CSV
+- 🔄 Respaldos automáticos con timestamp
+- 🔍 Búsqueda y filtrado avanzado
+- ✏️ Edición in-place de productos
+- 🛡️ Validación completa de datos
+
+### **Sistema BikeCity**
+- 🚲 Gestión completa de flota de bicicletas
+- 👤 Sistema de usuarios y membresías
+- 📍 Gestión de estaciones y ubicaciones
+- 📊 Reportes y estadísticas de uso
+
+## 💡 Mejores Prácticas Implementadas
+
+### **Código Limpio**
 ```python
-# Agregar libro usando pathlib
-def agregar_libro():
-    titulo = input("Título: ")
-    autor = input("Autor: ")
-    anio_publicacion = input("Año de publicación: ")
-    estado = input("Estado: ")
-    
-    with RUTA_ARCHIVO.open("a", encoding="utf-8") as f:
-        f.write(f"{titulo},{autor},{anio_publicacion},{estado}\n")
-    print("Libro registrado.")
+# Nombres descriptivos
+class GestorInventario:
+    def agregar_producto(self, producto):
+        pass
 
-# Eliminar libro manteniendo otros registros
-def eliminar_libro():
-    nombre = input("Nombre del libro a eliminar: ")
-    nuevas_lineas = []
-    eliminado = False
-    
-    with RUTA_ARCHIVO.open("r", encoding="utf-8") as f:
-        for linea in f:
-            partes = linea.strip().split(",")
-            if len(partes) == 4 and partes[0].lower() == nombre.lower():
-                eliminado = True
-                continue
-            nuevas_lineas.append(linea)
-    
-    with RUTA_ARCHIVO.open("w", encoding="utf-8") as f:
-        f.writelines(nuevas_lineas)
+# Documentación clara
+def buscar_por_nombre(self, nombre: str) -> list:
+    """Busca productos por nombre parcial o completo."""
+    pass
 ```
 
-## Estructura del Código
-
-### Clase Principal: ManejoInventario
-
+### **Manejo Seguro de Archivos**
 ```python
-class ManejoInventario:
-    def __init__(self):
-        self.archivo_nombre = "inventario.csv"
-        self.encabezados_defecto = ["Nombre", "Precio", "Cantidad", "Talla"]
-    
-    def inicializar_archivo_con_encabezados(self):
-        # Crea archivo con encabezados si no existe
-    
-    def ver_inventario(self):
-        # Muestra contenido completo
-    
-    def reemplazar_info(self, texto):
-        # Sobrescribe manteniendo encabezados
-    
-    def añadir_texto(self, texto):
-        # Añade sin sobrescribir
-    
-    def editar_producto(self):
-        # Modifica productos existentes
-    
-    def eliminar_producto(self):
-        # Elimina con confirmación
-    
-    def buscar_producto(self, nombre):
-        # Búsqueda por nombre
-    
-    def crear_backup(self):
-        # Crea copias de seguridad
-```
-
-## Mejores Prácticas Implementadas
-
-### Encoding UTF-8
-```python
+# Encoding explícito
 with open(archivo, 'r', encoding='utf-8') as file:
-    # Maneja correctamente caracteres especiales
+    contenido = file.read()
+
+# Validación antes de operaciones
+if archivo_path.exists():
+    # Procesar archivo
 ```
 
-### Parámetro newline en CSV
+### **Encapsulación Apropiada**
 ```python
-with open(archivo, 'w', newline='', encoding='utf-8') as file:
-    # Evita líneas en blanco adicionales en Windows
+class Producto:
+    def __init__(self, nombre, precio):
+        self._nombre = nombre      # Protegido
+        self.__id = self._generar_id()  # Privado
+    
+    @property
+    def nombre(self):
+        return self._nombre
 ```
 
-### Validación de Entrada
-```python
-while True:
-    try:
-        numero = int(input("Elige una opción: "))
-        return numero
-    except ValueError:
-        print("Por favor, ingresa un número válido.")
+## 📈 Progresión del Aprendizaje
+
+```
+Semana 1: Fundamentos de POO → creacion_de_clases/
+Semana 2: Pilares de POO → pilares_poo/
+Semana 3: Métodos Avanzados → metodos/
+Semana 4: Manejo de Archivos → manejo_de_archivos/
+Semana 5: Excepciones → excepciones/
+Semana 6: Asociaciones → asociacion_clases/
+Semana 7: Proyecto BikeCity → bikecity/
+Semana 8: Evaluación Final → ev_grupal_6_inventario/
 ```
 
-## Manejo de Errores Cubiertos
+## 🤝 Contribución
 
-- **FileNotFoundError**: Archivo no existe
-- **PermissionError**: Sin permisos de acceso
-- **ValueError**: Datos con formato incorrecto
-- **Exception**: Errores generales no previstos
+Este proyecto ha sido desarrollado como parte del **Bootcamp Python Trainee de Skillnest**. Las contribuciones y mejoras son bienvenidas:
 
-## Ejemplos de Uso
+1. Fork del proyecto
+2. Crear rama para nueva funcionalidad
+3. Commit de cambios
+4. Push a la rama
+5. Abrir Pull Request
 
-### Crear un Nuevo Inventario
+## 📝 Licencia
 
-1. Ejecutar `python inventario.py`
-2. Seleccionar opción 2 (Sobreescribir)
-3. Ingresar datos: `Camiseta,15.99,10,L`
+Proyecto educativo de código abierto desarrollado para fines de aprendizaje.
 
-### Agregar un Libro a la Biblioteca
+---
 
-1. Ejecutar `python biblioteca.py`
-2. Seleccionar opción 1 (Agregar libro)
-3. Ingresar datos del libro paso a paso
+## 🎓 Sobre Skillnest
 
-### Eliminar un Libro
+Este material forma parte del programa educativo de **Skillnest**, enfocado en formar desarrolladores Python con sólidas bases en programación orientada a objetos y mejores prácticas de desarrollo de software.
 
-1. Seleccionar opción 2 (Eliminar libro)
-2. Ingresar el título exacto del libro
-3. El sistema lo eliminará del archivo
-
-### Buscar un Producto
-
-1. Seleccionar opción 6 (Buscar)
-2. Ingresar nombre: `Camiseta`
-3. Ver detalles del producto
-
-### Crear Respaldo
-
-1. Seleccionar opción 8 (Backup)
-2. El archivo se guarda en `backups/` con timestamp
-
-## Objetivos de Aprendizaje
-
-Este proyecto está diseñado para enseñar:
-
-- **Manipulación de archivos**: Lectura, escritura y modificación con diferentes formatos
-- **Programación orientada a objetos**: Encapsulación, getters/setters y organización de código
-- **Manejo de excepciones**: Código robusto y resistente a errores
-- **Trabajo con CSV y TXT**: Diferentes formatos para almacenamiento de datos
-- **Gestión de rutas**: Uso de `os.path` y `pathlib` para manejo moderno de archivos
-- **Respaldos de datos**: Protección de información importante
-- **Encapsulación**: Uso de atributos privados y métodos de acceso
-- **Operaciones CRUD**: Crear, leer, actualizar y eliminar registros
-- **Búsqueda y filtrado**: Algoritmos básicos de búsqueda en archivos
-
-## Contribución
-
-Proyecto desarrollado como parte del **Bootcamp Python Trainee de Skillnest** para aprender conceptos fundamentales de programación en Python.
-
-## Licencia
-
-Proyecto educativo de código abierto.
+**¡Feliz aprendizaje! 🐍✨**
