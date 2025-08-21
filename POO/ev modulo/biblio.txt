@@ -1,0 +1,17 @@
+Demian,Herman Hesse,1919,disponible
+1984,George Orwell,1949,disponible
+Rebelión en la granja,George Orwell,1945,disponible
+Frankenstein,Mary Shelley,1818,disponible
+Drácula,Bram Stoker,1897,disponible
+El retrato de Dorian Gray,Oscar Wilde,1890,disponible
+Fahrenheit 451,Ray Bradbury,1953,disponible
+Crónicas marcianas,Ray Bradbury,1950,disponible
+Cumbres borrascosas,Emily Brontë,1847,disponible
+El extraño caso del Dr. Jekyll y Mr. Hyde,Robert Louis Stevenson,1886,disponible
+Cuentos de lo grotesco y arabesco,Edgar Allan Poe,1840,disponible
+Narraciones extraordinarias,Edgar Allan Poe,1856,disponible
+La metamorfosis,Franz Kafka,1915,disponible
+El castillo,Franz Kafka,1926,disponible
+El proceso,Franz Kafka,1925,disponible
+Un mundo feliz,Aldous Huxley,1932,disponible
+Nosotros,Yevgueni Zamiatin,1924,disponible
